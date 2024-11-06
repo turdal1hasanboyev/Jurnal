@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Bosh sahifa{% endblock %}
+
+{% block content %}
+
+<div class="text-center mt-5">
+    <h2>Xush kelibsiz, {{ request.user.get_full_name }}!</h2>
+    <p>Yoshingiz: {{ request.user.age }} yil</p>
+    <a href="{% url 'logout' %}" class="btn btn-danger mt-3">Chiqish</a>
+</div>
+
+{% endblock %}

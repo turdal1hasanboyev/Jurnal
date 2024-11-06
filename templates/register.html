@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+
+{% load static %}
+
+{% block title %}Ro'yxatdan o'tish{% endblock %}
+
+{% block content %}
+
+<div class="form-container">
+    <h2 class="text-center">Ro'yxatdan o'tish</h2>
+    <form method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            <label for="email">Email:</label>
+            <input type="email" name="email" id="email" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="phone_number">Telefon raqami:</label>
+            <input type="text" name="phone_number" id="phone_number" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="first_name">Ism:</label>
+            <input type="text" name="first_name" id="first_name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="last_name">Familiya:</label>
+            <input type="text" name="last_name" id="last_name" class="form-control" required>
+        </div>
+        <div class="form-group">
+            <label for="password">Parol:</label>
+            <input type="password" name="password" id="password" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Ro'yxatdan o'tish</button>
+    </form>
+    <p class="text-center mt-3">Allaqachon hisobingiz bormi? <a href="{% url 'login' %}">Kirish</a></p>
+</div>
+
+{% endblock %}
