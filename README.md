@@ -1,2 +1,2 @@
 # Jurnal
-Sinf Jurnali loyihasi
+Sinf Jurnali loyihasi!
