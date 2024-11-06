@@ -1,0 +1,2 @@
+# Jurnal
+Sinf Jurnali loyihasi
