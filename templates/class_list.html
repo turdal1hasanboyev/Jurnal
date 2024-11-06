@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Sinflar Listi {% endblock %}
+
+{% block content %}
+
+<div class="container mt-4">
+    <h2>Class List</h2>
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Grade</th>
+                <th>Section</th>
+                <th>Number of Students</th>
+                <th>Teacher</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in data %}
+            <tr>
+                <td>{{ item.class.grade }}</td>
+                <td>{{ item.class.section }}</td>
+                <td>{{ item.student_count }}</td>
+                <td>{% if item.teacher %}
+                    {{ item.teacher.get_full_name }}
+                    {% else %}
+                    No Teacher Assigned
+                    {% endif %}
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+{% endblock %}

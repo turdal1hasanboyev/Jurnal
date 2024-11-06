@@ -39,6 +39,7 @@ class Subject(BaseModel):
     name = models.CharField(max_length=25, unique=True)
     description = RichTextField(null=True, blank=True)
     sinf = models.ForeignKey(Class, on_delete=models.CASCADE, related_name='class_subject')
+    teacher = models.ForeignKey('juornal.Teacher', on_delete=models.CASCADE, related_name='subject_teacher', null=True, blank=True)
 
     def __str__(self):
         return f"{self.name}"
@@ -56,7 +57,7 @@ class Teacher(BaseModel):
     first_name = models.CharField(max_length=50)
     last_name = models.CharField(max_length=50)
     sinf = models.ForeignKey(Class, on_delete=models.CASCADE, related_name='class_teacher', null=True, blank=True)
-    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="subjects")
+    subject = models.ForeignKey(Subject, on_delete=models.CASCADE, related_name="subjects", null=True, blank=True)
     gender = models.CharField(max_length=10, choices=GENDER)
     image = models.ImageField(upload_to='teacher_images/', default='img/default.png')
     description = RichTextField(null=True, blank=True)

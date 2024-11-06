@@ -36,6 +36,7 @@ class SubjectAdmin(admin.ModelAdmin):
         'id',
         'name',
         'sinf',
+        'teacher',
         'is_active',
         'created_at',
         'updated_at',
@@ -51,6 +52,7 @@ class SubjectAdmin(admin.ModelAdmin):
     list_filter = (
         'is_active',
         'name',
+        'teacher',
     )
 
 

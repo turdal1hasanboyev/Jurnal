@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block title %} Fanlar Listi {% endblock %}
+
+{% block content %}
+
+<h1>Subjects List</h1>
+<table>
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Class</th>
+            <th>Teacher</th>
+            <th>Created_At</th>
+            <th>Updated_At</th>
+            <th>Is_Active</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for subject in subjects %}
+        <tr>
+            <td>{{ subject.id }}</td>
+            <td>{{ subject.name }}</td>
+            <td>{{ subject.description|safe }}</td>
+            <td>{{ subject.sinf.grade }} {{ subject.sinf.section }}</td>
+            <td>
+                {% if subject.teacher %}
+                {{ subject.teacher.get_full_name }}
+                {% else %}
+                No Teacher Assigned
+                {% endif %}
+            </td>
+            <td>{{ subject.created_at }}</td>
+            <td>{{ subject.updated_at }}</td>
+            <td>{{ subject.is_active }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+{% endblock %}
